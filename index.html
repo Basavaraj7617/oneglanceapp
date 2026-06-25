@@ -110,6 +110,25 @@
   .analogy-box { background: var(--blue-light); border-radius: var(--radius); padding: 1rem; font-size: 14px; color: var(--blue-text); line-height: 1.6; }
   .analogy-box strong { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; color: var(--blue-dark); }
 
+  /* QUICK REFERENCE */
+  .qr-section { background: var(--surface); border-top: 1px solid var(--border); padding: 2rem; }
+  .qr-inner { max-width: 900px; margin: 0 auto; }
+  .qr-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 1.25rem; }
+  .qr-search { padding: 8px 14px; border: 1px solid var(--border); border-radius: var(--radius); font-size: 13px; width: 220px; outline: none; background: var(--bg); color: var(--text); }
+  .qr-search:focus { border-color: var(--blue); }
+  .qr-cats { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1.25rem; }
+  .qr-cat { padding: 5px 13px; border-radius: 20px; font-size: 12px; font-weight: 500; cursor: pointer; border: 1px solid var(--border); background: var(--surface); color: var(--text2); }
+  .qr-cat.active { background: var(--blue-light); color: var(--blue-text); border-color: #B5D4F4; }
+  .qr-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .qr-table th { text-align: left; padding: 8px 14px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text3); border-bottom: 1px solid var(--border); background: var(--surface2); }
+  .qr-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .qr-table tr:last-child td { border-bottom: none; }
+  .qr-table tr:hover td { background: var(--surface2); }
+  .qr-concept { font-weight: 600; color: var(--text); }
+  .qr-remember { color: var(--text2); line-height: 1.5; }
+  .qr-cat-pill { display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 20px; }
+  .qr-empty { text-align: center; padding: 2rem; color: var(--text3); font-size: 14px; }
+
   @media (max-width: 600px) {
     .hero h1 { font-size: 28px; }
     .main { padding: 1.25rem; }
@@ -117,6 +136,8 @@
     .exam-bar { padding: 1rem 1.25rem; }
     .hero { padding: 2rem 1.25rem; }
     .progress-bar { padding: 0.875rem 1.25rem; }
+    .qr-section { padding: 1.25rem; }
+    .qr-search { width: 100%; }
   }
 </style>
 </head>
@@ -127,6 +148,7 @@
   <div class="nav-right">
     <div class="nav-links">
       <a href="#topics">Topics</a>
+      <a href="#quickref">Quick ref</a>
       <a href="#" onclick="openQuiz()">Quiz me</a>
     </div>
     <button class="btn-primary" onclick="openQuiz()">Take a quiz</button>
@@ -205,6 +227,37 @@
     <button class="btn-outline" onclick="resetProgress()">Reset progress</button>
   </div>
 </div>
+
+<section class="qr-section" id="quickref">
+  <div class="qr-inner">
+    <div class="qr-header">
+      <div>
+        <div class="section-title">⚡ Quick reference</div>
+        <div class="section-sub" style="margin-top:4px">Every concept — one line to remember. Search or filter by category.</div>
+      </div>
+      <input class="qr-search" id="qr-search" type="text" placeholder="Search concepts..." oninput="renderQR()">
+    </div>
+    <div class="qr-cats" id="qr-cats">
+      <div class="qr-cat active" data-cat="all">All</div>
+      <div class="qr-cat" data-cat="cloud">Cloud models</div>
+      <div class="qr-cat" data-cat="compute">Compute</div>
+      <div class="qr-cat" data-cat="storage">Storage</div>
+      <div class="qr-cat" data-cat="network">Networking</div>
+      <div class="qr-cat" data-cat="identity">Identity</div>
+      <div class="qr-cat" data-cat="cost">Cost</div>
+      <div class="qr-cat" data-cat="governance">Governance</div>
+      <div class="qr-cat" data-cat="arch">Architecture</div>
+      <div class="qr-cat" data-cat="responsibility">Responsibility</div>
+    </div>
+    <div style="overflow-x:auto">
+      <table class="qr-table">
+        <thead><tr><th>Concept</th><th>Remember this</th><th>Category</th></tr></thead>
+        <tbody id="qr-tbody"></tbody>
+      </table>
+      <div id="qr-empty" class="qr-empty" style="display:none">No matching concepts found.</div>
+    </div>
+  </div>
+</section>
 
 <footer>
   <div class="footer-logo"><span class="logo-dot"></span> OneGlance</div>
@@ -518,6 +571,112 @@ document.getElementById('tabs').addEventListener('click', e => {
 });
 
 render('all');
+
+const qrData = [
+  { concept:"Cloud Computing", remember:"Rent IT resources over the internet", cat:"cloud" },
+  { concept:"Public Cloud", remember:"Lowest cost, easiest scaling", cat:"cloud" },
+  { concept:"Private Cloud", remember:"Maximum control and security", cat:"cloud" },
+  { concept:"Hybrid Cloud", remember:"Public + Private Cloud combined", cat:"cloud" },
+  { concept:"IaaS", remember:"You manage OS and applications", cat:"cloud" },
+  { concept:"PaaS", remember:"Azure manages OS, you manage the app", cat:"cloud" },
+  { concept:"SaaS", remember:"Just use the software", cat:"cloud" },
+  { concept:"Shared Responsibility Model", remember:"Microsoft secures the cloud, you secure your data", cat:"responsibility" },
+  { concept:"On-premises", remember:"You manage everything — nothing is shared", cat:"responsibility" },
+  { concept:"IaaS responsibility", remember:"You manage apps, OS, data — Azure manages hardware and network", cat:"responsibility" },
+  { concept:"PaaS responsibility", remember:"You manage apps and data — Azure manages OS and infrastructure", cat:"responsibility" },
+  { concept:"SaaS responsibility", remember:"You manage only usage and data — Azure manages everything else", cat:"responsibility" },
+  { concept:"Azure VM", remember:"Run Windows/Linux servers", cat:"compute" },
+  { concept:"Azure App Service", remember:"Host websites (PaaS)", cat:"compute" },
+  { concept:"Azure Functions", remember:"Serverless code execution", cat:"compute" },
+  { concept:"Docker", remember:"Container platform", cat:"compute" },
+  { concept:"Containers", remember:"Lightweight alternative to VMs", cat:"compute" },
+  { concept:"Azure SQL Database", remember:"Managed relational database service", cat:"storage" },
+  { concept:"Cosmos DB", remember:"Globally distributed NoSQL database", cat:"storage" },
+  { concept:"Azure Storage", remember:"Store files, images, videos, backups", cat:"storage" },
+  { concept:"Azure Blob Storage", remember:"Images, videos, files, backups", cat:"storage" },
+  { concept:"Queue Storage", remember:"Messaging between apps", cat:"storage" },
+  { concept:"Table Storage", remember:"NoSQL key-value storage", cat:"storage" },
+  { concept:"Azure VNet", remember:"Connect Azure resources securely", cat:"network" },
+  { concept:"Azure Load Balancer", remember:"Distributes traffic", cat:"network" },
+  { concept:"Azure CDN", remember:"Global content delivery", cat:"network" },
+  { concept:"Azure Front Door", remember:"Global load balancing and web routing", cat:"network" },
+  { concept:"Azure Firewall", remember:"Protects network traffic", cat:"network" },
+  { concept:"NSG", remember:"Traffic rules for resources", cat:"network" },
+  { concept:"Entra ID / Azure AD", remember:"Identity and access management", cat:"identity" },
+  { concept:"MFA", remember:"Extra login verification", cat:"identity" },
+  { concept:"RBAC", remember:"Controls who has what permissions", cat:"identity" },
+  { concept:"Zero Trust", remember:"Never trust, always verify", cat:"identity" },
+  { concept:"Azure Defender", remember:"Threat protection", cat:"identity" },
+  { concept:"Azure Key Vault", remember:"Store secrets and keys securely", cat:"identity" },
+  { concept:"Defense in Depth", remember:"Multiple layers of security", cat:"identity" },
+  { concept:"Service Trust Portal", remember:"Compliance information", cat:"identity" },
+  { concept:"CapEx", remember:"Buy infrastructure upfront", cat:"cost" },
+  { concept:"OpEx", remember:"Pay as you go", cat:"cost" },
+  { concept:"SLA", remember:"Availability / uptime guarantee", cat:"cost" },
+  { concept:"Pricing Calculator", remember:"Estimate Azure costs before deployment", cat:"cost" },
+  { concept:"TCO Calculator", remember:"Compare on-prem vs Azure cost", cat:"cost" },
+  { concept:"Cost Management", remember:"Track and optimize Azure spending", cat:"cost" },
+  { concept:"What affects Azure pricing", remember:"Region + resource type + usage amount", cat:"cost" },
+  { concept:"Data Center", remember:"Physical building with servers", cat:"arch" },
+  { concept:"Region", remember:"Geographic area containing data centers", cat:"arch" },
+  { concept:"Availability Zone", remember:"Protection from data center failure", cat:"arch" },
+  { concept:"Availability Set", remember:"Fault isolation for VMs within a region", cat:"arch" },
+  { concept:"Resource Group", remember:"Organize Azure resources into a logical container", cat:"governance" },
+  { concept:"Subscription", remember:"Billing and access control boundary", cat:"governance" },
+  { concept:"Management Group", remember:"Manage multiple subscriptions together", cat:"governance" },
+  { concept:"Azure Portal", remember:"Web UI to manage Azure resources", cat:"governance" },
+  { concept:"Azure Monitor", remember:"Monitor resources — CPU, memory, logs", cat:"governance" },
+  { concept:"Azure Service Health", remember:"Monitor Azure outages and maintenance", cat:"governance" },
+  { concept:"Azure Advisor", remember:"Gives recommendations to improve Azure setup", cat:"governance" },
+  { concept:"ARM", remember:"Manager of all Azure resources", cat:"governance" },
+  { concept:"ARM Template", remember:"Blueprint for repeatable deployments", cat:"governance" },
+  { concept:"Azure Policy", remember:"Enforce organizational rules", cat:"governance" },
+  { concept:"Resource Lock", remember:"Prevent accidental changes or deletion", cat:"governance" },
+  { concept:"Delete Lock", remember:"Can't delete, but can modify", cat:"governance" },
+  { concept:"Read-Only Lock", remember:"Can't modify or delete", cat:"governance" },
+  { concept:"Azure Databricks", remember:"Big data analytics platform", cat:"compute" },
+];
+
+const catColors = {
+  cloud:"#E6F1FB:#042C53", compute:"#FAECE7:#4A1B0C", storage:"#FAEEDA:#412402",
+  network:"#E1F5EE:#04342C", identity:"#FBEAF0:#4B1528", cost:"#EAF3DE:#173404",
+  governance:"#EEEDFE:#26215C", arch:"#F1EFE8:#2C2C2A", responsibility:"#E6F1FB:#042C53"
+};
+const catLabels = {
+  cloud:"Cloud", compute:"Compute", storage:"Storage", network:"Network",
+  identity:"Identity", cost:"Cost", governance:"Governance", arch:"Architecture", responsibility:"Responsibility"
+};
+
+function renderQR() {
+  const search = document.getElementById('qr-search').value.toLowerCase();
+  const cat = document.querySelector('.qr-cat.active').dataset.cat;
+  let filtered = qrData;
+  if (cat !== 'all') filtered = filtered.filter(r => r.cat === cat);
+  if (search) filtered = filtered.filter(r => r.concept.toLowerCase().includes(search) || r.remember.toLowerCase().includes(search));
+  const tbody = document.getElementById('qr-tbody');
+  const empty = document.getElementById('qr-empty');
+  if (filtered.length === 0) { tbody.innerHTML = ''; empty.style.display = 'block'; return; }
+  empty.style.display = 'none';
+  const [bg, fg] = (catColors[filtered[0]?.cat] || '#E6F1FB:#042C53').split(':');
+  tbody.innerHTML = filtered.map(r => {
+    const [cbg, cfg] = (catColors[r.cat] || '#E6F1FB:#042C53').split(':');
+    return `<tr>
+      <td class="qr-concept">${r.concept}</td>
+      <td class="qr-remember">${r.remember}</td>
+      <td><span class="qr-cat-pill" style="background:${cbg};color:${cfg}">${catLabels[r.cat] || r.cat}</span></td>
+    </tr>`;
+  }).join('');
+}
+
+document.getElementById('qr-cats').addEventListener('click', e => {
+  const cat = e.target.closest('.qr-cat');
+  if (!cat) return;
+  document.querySelectorAll('.qr-cat').forEach(c => c.classList.remove('active'));
+  cat.classList.add('active');
+  renderQR();
+});
+
+renderQR();
 </script>
 </body>
 </html>
