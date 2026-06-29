@@ -12,177 +12,195 @@
   --amber:#d97706;--amber-light:#fffbeb;--amber-text:#78350f;
   --purple:#7c3aed;--purple-light:#f5f3ff;--purple-text:#3b0764;
   --green:#16a34a;--green-light:#f0fdf4;--green-text:#14532d;
+  --pink:#db2777;--pink-light:#fdf2f8;--pink-text:#831843;
+  --orange:#ea580c;--orange-light:#fff7ed;--orange-text:#7c2d12;
   --red:#dc2626;--red-light:#fef2f2;
-  --bg:#f9fafb;--surface:#ffffff;--surface2:#f3f4f6;--surface3:#e5e7eb;
+  --bg:#f8f7ff;--surface:#ffffff;--surface2:#f3f4f6;--surface3:#e5e7eb;
   --text:#111827;--text2:#4b5563;--text3:#9ca3af;
   --border:#e5e7eb;--border2:#d1d5db;
-  --radius:10px;--shadow:0 1px 3px rgba(0,0,0,0.08),0 1px 2px rgba(0,0,0,0.04);
-  --shadow-md:0 4px 6px rgba(0,0,0,0.07),0 2px 4px rgba(0,0,0,0.05);
+  --radius:12px;--shadow:0 1px 3px rgba(0,0,0,0.08),0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md:0 4px 12px rgba(0,0,0,0.1),0 2px 4px rgba(0,0,0,0.06);
 }
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.6}
 
 /* NAV */
-nav{display:flex;align-items:center;justify-content:space-between;padding:.875rem 2rem;background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
-.logo{display:flex;align-items:center;gap:8px;font-size:18px;font-weight:700;color:var(--text);text-decoration:none;letter-spacing:-.3px}
-.logo-icon{width:28px;height:28px;background:var(--blue);border-radius:7px;display:flex;align-items:center;justify-content:center}
+nav{display:flex;align-items:center;justify-content:space-between;padding:.875rem 2rem;background:linear-gradient(90deg,#1e1b4b,#312e81);position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(49,46,129,0.4)}
+.logo{display:flex;align-items:center;gap:10px;font-size:19px;font-weight:800;color:#fff;text-decoration:none;letter-spacing:-.3px}
+.logo-icon{width:30px;height:30px;background:linear-gradient(135deg,#60a5fa,#a78bfa);border-radius:8px;display:flex;align-items:center;justify-content:center}
 .logo-icon svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round}
 .nav-links{display:flex;gap:1.5rem}
-.nav-links a{font-size:13px;color:var(--text2);text-decoration:none;font-weight:500}
-.nav-links a:hover{color:var(--text)}
+.nav-links a{font-size:13px;color:rgba(255,255,255,0.75);text-decoration:none;font-weight:500}
+.nav-links a:hover{color:#fff}
 .nav-right{display:flex;align-items:center;gap:10px}
-.btn-nav{background:var(--blue);color:#fff;border:none;padding:8px 18px;border-radius:var(--radius);font-size:13px;cursor:pointer;font-weight:600;letter-spacing:-.1px}
-.btn-nav:hover{background:var(--blue-dark)}
-.streak-badge{display:flex;align-items:center;gap:5px;background:#fff7ed;border:1px solid #fed7aa;border-radius:20px;padding:5px 12px;font-size:13px;font-weight:600;color:#c2410c;cursor:pointer}
+.btn-nav{background:linear-gradient(135deg,#f59e0b,#ef4444);color:#fff;border:none;padding:9px 20px;border-radius:var(--radius);font-size:13px;cursor:pointer;font-weight:700;box-shadow:0 2px 8px rgba(245,158,11,0.4)}
+.btn-nav:hover{filter:brightness(1.1)}
+.streak-badge{display:flex;align-items:center;gap:5px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);border-radius:20px;padding:6px 14px;font-size:13px;font-weight:700;color:#fff;cursor:pointer;backdrop-filter:blur(4px)}
+.streak-badge:hover{background:rgba(255,255,255,0.25)}
 
 /* DASHBOARD STRIP */
-.dashboard{background:var(--surface);border-bottom:1px solid var(--border);padding:0 2rem}
-.dash-inner{max-width:960px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:0}
-.dash-stat{padding:1.25rem 1rem;border-right:1px solid var(--border);text-align:center}
+.dashboard{background:linear-gradient(90deg,#1e1b4b,#312e81);padding:0 2rem;border-bottom:1px solid rgba(255,255,255,0.1)}
+.dash-inner{max-width:960px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+.dash-stat{padding:1.1rem 1rem;border-right:1px solid rgba(255,255,255,0.1);text-align:center}
 .dash-stat:last-child{border-right:none}
-.dash-stat-num{font-size:26px;font-weight:700;color:var(--text);letter-spacing:-.5px;line-height:1.2}
-.dash-stat-num.blue{color:var(--blue)}
-.dash-stat-num.green{color:var(--green)}
-.dash-stat-num.amber{color:var(--amber)}
-.dash-stat-num.red{color:var(--red)}
-.dash-stat-label{font-size:11px;color:var(--text3);font-weight:500;text-transform:uppercase;letter-spacing:.05em;margin-top:3px}
+.dash-stat-num{font-size:26px;font-weight:800;line-height:1.2;letter-spacing:-.5px}
+.dash-stat-num.blue{color:#60a5fa}
+.dash-stat-num.green{color:#4ade80}
+.dash-stat-num.amber{color:#fbbf24}
+.dash-stat-num.red{color:#f87171}
+.dash-stat-label{font-size:10px;color:rgba(255,255,255,0.55);font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-top:3px}
 
 /* HERO */
-.hero{padding:2.5rem 2rem 2rem;border-bottom:1px solid var(--border);background:linear-gradient(135deg,#eff6ff 0%,#f9fafb 60%)}
-.hero-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
-.hero-left{flex:1;min-width:280px}
-.eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:.08em;color:var(--blue);text-transform:uppercase;margin-bottom:.75rem;background:var(--blue-light);padding:4px 12px;border-radius:20px;border:1px solid #bfdbfe}
-.hero h1{font-size:36px;font-weight:800;line-height:1.15;color:var(--text);margin-bottom:.75rem;letter-spacing:-.5px}
-.hero h1 span{color:var(--blue)}
-.hero p{font-size:15px;color:var(--text2);max-width:460px;margin-bottom:1.5rem;line-height:1.7}
-.hero-btns{display:flex;gap:10px;flex-wrap:wrap}
-.btn-primary{background:var(--blue);color:#fff;border:none;padding:11px 22px;border-radius:var(--radius);font-size:14px;cursor:pointer;font-weight:600}
-.btn-primary:hover{background:var(--blue-dark)}
-.btn-secondary{background:var(--surface);color:var(--text);border:1px solid var(--border2);padding:11px 22px;border-radius:var(--radius);font-size:14px;cursor:pointer;font-weight:500}
-.btn-secondary:hover{background:var(--surface2)}
-.hero-right{flex-shrink:0}
-.exam-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.25rem 1.5rem;box-shadow:var(--shadow-md);min-width:220px}
-.exam-card-title{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);margin-bottom:.875rem}
-.exam-row{display:flex;align-items:center;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border)}
-.exam-row:last-child{border-bottom:none}
-.exam-row-label{font-size:13px;color:var(--text2)}
-.exam-row-val{font-size:13px;font-weight:600;color:var(--text)}
-.exam-row-val.pass{color:var(--green)}
+.hero{padding:3rem 2rem 2.5rem;border-bottom:1px solid var(--border);background:linear-gradient(135deg,#1e1b4b 0%,#312e81 40%,#4c1d95 100%);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;background:radial-gradient(circle,rgba(96,165,250,0.2),transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-40px;left:20%;width:200px;height:200px;background:radial-gradient(circle,rgba(167,139,250,0.15),transparent 70%);pointer-events:none}
+.hero-inner{max-width:960px;margin:0 auto;position:relative;z-index:1}
+.eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.1em;color:#a5b4fc;text-transform:uppercase;margin-bottom:.875rem;background:rgba(255,255,255,0.1);padding:5px 14px;border-radius:20px;border:1px solid rgba(165,180,252,0.3)}
+.hero h1{font-size:42px;font-weight:900;line-height:1.1;color:#fff;margin-bottom:.875rem;letter-spacing:-.8px}
+.hero h1 span{background:linear-gradient(90deg,#60a5fa,#a78bfa,#f472b6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:15px;color:rgba(255,255,255,0.75);max-width:500px;margin-bottom:2rem;line-height:1.75}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-primary{background:linear-gradient(135deg,#3b82f6,#8b5cf6);color:#fff;border:none;padding:12px 26px;border-radius:var(--radius);font-size:14px;cursor:pointer;font-weight:700;box-shadow:0 4px 15px rgba(59,130,246,0.4)}
+.btn-primary:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.btn-secondary{background:rgba(255,255,255,0.12);color:#fff;border:1px solid rgba(255,255,255,0.25);padding:12px 26px;border-radius:var(--radius);font-size:14px;cursor:pointer;font-weight:600;backdrop-filter:blur(4px)}
+.btn-secondary:hover{background:rgba(255,255,255,0.2)}
+
+/* DOMAIN PILLS IN HERO */
+.domain-pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:2rem}
+.domain-pill{display:flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.8)}
 
 /* PROGRESS BAR */
-.prog-wrap{background:var(--surface);border-bottom:1px solid var(--border);padding:.875rem 2rem}
+.prog-wrap{background:var(--surface);border-bottom:1px solid var(--border);padding:1rem 2rem}
 .prog-inner{max-width:960px;margin:0 auto}
 .prog-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-.prog-label{font-size:13px;font-weight:600;color:var(--text)}
-.prog-pct{font-size:13px;font-weight:700;color:var(--blue)}
-.prog-track{height:8px;background:var(--surface3);border-radius:99px;overflow:hidden}
-.prog-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--blue),#60a5fa);transition:width .5s ease;width:0%}
-.prog-message{font-size:12px;color:var(--text3);margin-top:5px}
+.prog-label{font-size:13px;font-weight:700;color:var(--text)}
+.prog-pct{font-size:15px;font-weight:800;background:linear-gradient(90deg,var(--blue),#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.prog-track{height:10px;background:var(--surface3);border-radius:99px;overflow:hidden}
+.prog-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,#3b82f6,#8b5cf6,#ec4899);transition:width .6s cubic-bezier(.4,0,.2,1);width:0%}
+.prog-message{font-size:12px;color:var(--text3);margin-top:6px}
 
 /* DAILY CARD */
-.daily-wrap{background:var(--surface);border-bottom:1px solid var(--border);padding:1rem 2rem}
+.daily-wrap{padding:1rem 2rem;background:var(--bg)}
 .daily-inner{max-width:960px;margin:0 auto}
-.daily-card{background:linear-gradient(135deg,#eff6ff,#f0fdf4);border:1px solid #bfdbfe;border-radius:12px;padding:1rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
-.daily-left{display:flex;align-items:center;gap:12px}
-.daily-icon{font-size:28px}
-.daily-text-title{font-size:14px;font-weight:600;color:var(--text)}
-.daily-text-sub{font-size:12px;color:var(--text2);margin-top:2px}
-.btn-daily{background:var(--blue);color:#fff;border:none;padding:8px 18px;border-radius:var(--radius);font-size:13px;cursor:pointer;font-weight:600;white-space:nowrap}
-.btn-daily:hover{background:var(--blue-dark)}
+.daily-card{background:linear-gradient(135deg,#fef3c7,#fce7f3,#ede9fe);border:1px solid #fde68a;border-radius:16px;padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;box-shadow:var(--shadow)}
+.daily-icon{font-size:32px}
+.daily-text-title{font-size:15px;font-weight:700;color:var(--text)}
+.daily-text-sub{font-size:12px;color:var(--text2);margin-top:3px}
+.btn-daily{background:linear-gradient(135deg,#f59e0b,#ec4899);color:#fff;border:none;padding:10px 20px;border-radius:var(--radius);font-size:13px;cursor:pointer;font-weight:700;white-space:nowrap;box-shadow:0 3px 10px rgba(245,158,11,0.3)}
+.btn-daily:hover{filter:brightness(1.1)}
 
 /* MAIN */
 .main{max-width:960px;margin:0 auto;padding:2rem}
-.section-hd{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:1.25rem;flex-wrap:wrap;gap:8px}
-.section-title{font-size:18px;font-weight:700;color:var(--text)}
-.section-sub{font-size:13px;color:var(--text2);margin-top:3px}
-.section-count{font-size:12px;color:var(--text3);font-weight:500}
+.section-hd{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:8px}
+.section-title{font-size:22px;font-weight:800;color:var(--text);letter-spacing:-.3px}
+.section-sub{font-size:13px;color:var(--text2);margin-top:4px}
+.section-count{font-size:12px;color:var(--text3);font-weight:600;background:var(--surface2);padding:4px 12px;border-radius:20px;border:1px solid var(--border)}
 
 /* TABS */
-.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.5rem;background:var(--surface2);padding:4px;border-radius:12px;width:fit-content}
-.tab{padding:6px 14px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--text2);transition:all .15s}
-.tab.active{background:var(--surface);color:var(--blue);box-shadow:var(--shadow)}
-.tab:hover:not(.active){color:var(--text)}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.75rem}
+.tab{padding:8px 18px;border-radius:20px;font-size:12px;font-weight:700;cursor:pointer;border:2px solid transparent;transition:all .2s;letter-spacing:.01em}
+.tab[data-domain="all"]{background:#ede9fe;color:#4c1d95;border-color:#ddd6fe}
+.tab[data-domain="cloud"]{background:#dbeafe;color:#1e40af;border-color:transparent}
+.tab[data-domain="arch"]{background:#ede9fe;color:#4c1d95;border-color:transparent}
+.tab[data-domain="compute"]{background:#fed7aa;color:#7c2d12;border-color:transparent}
+.tab[data-domain="network"]{background:#bbf7d0;color:#14532d;border-color:transparent}
+.tab[data-domain="storage"]{background:#fde68a;color:#78350f;border-color:transparent}
+.tab[data-domain="security"]{background:#f3e8ff;color:#581c87;border-color:transparent}
+.tab:not(.active){background:var(--surface2);color:var(--text2);border-color:var(--border)}
+.tab.active[data-domain="all"]{background:#4c1d95;color:#fff;border-color:#4c1d95}
+.tab.active[data-domain="cloud"]{background:#1e40af;color:#fff;border-color:#1e40af}
+.tab.active[data-domain="arch"]{background:#5b21b6;color:#fff;border-color:#5b21b6}
+.tab.active[data-domain="compute"]{background:#c2410c;color:#fff;border-color:#c2410c}
+.tab.active[data-domain="network"]{background:#065f46;color:#fff;border-color:#065f46}
+.tab.active[data-domain="storage"]{background:#92400e;color:#fff;border-color:#92400e}
+.tab.active[data-domain="security"]{background:#6b21a8;color:#fff;border-color:#6b21a8}
 
 /* CARDS */
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.25rem;cursor:pointer;transition:all .2s;position:relative}
-.card:hover{border-color:var(--blue-mid);box-shadow:var(--shadow-md);transform:translateY(-2px)}
-.card.done{border-color:#86efac;background:#f0fdf4}
-.card.done:hover{border-color:#4ade80}
-.card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:10px}
-.card-left{display:flex;align-items:flex-start;gap:10px;flex:1}
-.card-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-.card-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px;line-height:1.3}
-.card-sub{font-size:12px;color:var(--text2);line-height:1.5}
-.card-check{width:24px;height:24px;border-radius:50%;border:2px solid var(--border2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s;background:var(--surface)}
-.card.done .card-check{background:var(--green);border-color:var(--green)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+.card{background:var(--surface);border:2px solid var(--border);border-radius:16px;padding:1.375rem;cursor:pointer;transition:all .25s;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;opacity:0;transition:opacity .2s}
+.card:hover::before{opacity:1}
+.card[data-domain="cloud"]::before{background:linear-gradient(90deg,#3b82f6,#60a5fa)}
+.card[data-domain="arch"]::before{background:linear-gradient(90deg,#7c3aed,#a78bfa)}
+.card[data-domain="compute"]::before{background:linear-gradient(90deg,#ea580c,#fb923c)}
+.card[data-domain="network"]::before{background:linear-gradient(90deg,#059669,#34d399)}
+.card[data-domain="storage"]::before{background:linear-gradient(90deg,#d97706,#fbbf24)}
+.card[data-domain="security"]::before{background:linear-gradient(90deg,#9333ea,#c084fc)}
+.card:hover{border-color:transparent;box-shadow:var(--shadow-md);transform:translateY(-3px)}
+.card.done{border-color:#4ade80;background:linear-gradient(135deg,#f0fdf4,#dcfce7)}
+.card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:12px}
+.card-left{display:flex;align-items:flex-start;gap:12px;flex:1}
+.card-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
+.card-title{font-size:14px;font-weight:800;color:var(--text);margin-bottom:4px;line-height:1.3;letter-spacing:-.1px}
+.card-sub{font-size:12px;color:var(--text2);line-height:1.55}
+.card-check{width:26px;height:26px;border-radius:50%;border:2.5px solid var(--border2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .25s;background:var(--surface)}
+.card.done .card-check{background:linear-gradient(135deg,#16a34a,#4ade80);border-color:transparent;box-shadow:0 2px 8px rgba(22,163,74,0.4)}
 .card-check svg{width:13px;height:13px;stroke:#fff;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;display:none}
 .card.done .card-check svg{display:block}
-.card-footer{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:10px;padding-top:10px;border-top:1px solid var(--border)}
-.tag{font-size:11px;padding:2px 9px;border-radius:20px;font-weight:600}
-.weight-tag{font-size:11px;padding:2px 9px;border-radius:20px;background:var(--surface2);color:var(--text3);border:1px solid var(--border)}
-.card-read{font-size:11px;color:var(--blue);font-weight:600;margin-left:auto}
+.card-footer{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:12px;padding-top:12px;border-top:1px solid var(--border)}
+.tag{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:700}
+.weight-tag{font-size:11px;padding:3px 10px;border-radius:20px;background:var(--surface2);color:var(--text3);border:1px solid var(--border)}
+.card-read{font-size:11px;color:var(--blue);font-weight:700;margin-left:auto;cursor:pointer}
+.card-read:hover{text-decoration:underline}
 
 /* QUICK REF */
-.qr-wrap{background:var(--surface);border-top:1px solid var(--border);padding:2rem}
+.qr-wrap{background:linear-gradient(135deg,#1e1b4b,#312e81);padding:2.5rem 2rem}
 .qr-inner{max-width:960px;margin:0 auto}
-.qr-controls{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:1.25rem}
-.qr-search{padding:9px 14px;border:1px solid var(--border);border-radius:var(--radius);font-size:13px;width:240px;outline:none;background:var(--surface);color:var(--text);box-shadow:var(--shadow)}
-.qr-search:focus{border-color:var(--blue)}
-.qr-cats{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.25rem}
-.qr-cat{padding:5px 13px;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer;border:1px solid var(--border);background:var(--surface);color:var(--text2)}
-.qr-cat.active{background:var(--blue-light);color:var(--blue-text);border-color:#bfdbfe}
-.qr-cat:hover:not(.active){border-color:var(--border2)}
-.qr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px}
-.qr-item{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:.875rem 1rem;display:flex;flex-direction:column;gap:5px;transition:border-color .15s}
-.qr-item:hover{border-color:var(--border2)}
-.qr-concept{font-size:13px;font-weight:700;color:var(--text)}
-.qr-remember{font-size:12px;color:var(--text2);line-height:1.5}
-.qr-cat-pill{display:inline-block;font-size:10px;font-weight:600;padding:2px 8px;border-radius:20px;margin-top:4px;width:fit-content}
-.qr-empty{text-align:center;padding:3rem;color:var(--text3);font-size:14px;grid-column:1/-1}
+.qr-title-row{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.qr-heading{font-size:24px;font-weight:800;color:#fff;letter-spacing:-.3px}
+.qr-sub{font-size:13px;color:rgba(255,255,255,0.65);margin-top:4px}
+.qr-search{padding:10px 16px;border:1.5px solid rgba(255,255,255,0.2);border-radius:var(--radius);font-size:13px;width:260px;outline:none;background:rgba(255,255,255,0.1);color:#fff;font-family:inherit}
+.qr-search::placeholder{color:rgba(255,255,255,0.4)}
+.qr-search:focus{border-color:rgba(255,255,255,0.5);background:rgba(255,255,255,0.15)}
+.qr-cats{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.5rem}
+.qr-cat{padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;cursor:pointer;border:1.5px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.7)}
+.qr-cat.active{background:#fff;color:#312e81;border-color:#fff}
+.qr-cat:hover:not(.active){background:rgba(255,255,255,0.15);color:#fff}
+.qr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+.qr-item{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:1rem;transition:all .2s;backdrop-filter:blur(4px)}
+.qr-item:hover{background:rgba(255,255,255,0.14);border-color:rgba(255,255,255,0.25);transform:translateY(-1px)}
+.qr-concept{font-size:13px;font-weight:800;color:#fff;margin-bottom:4px}
+.qr-remember{font-size:12px;color:rgba(255,255,255,0.7);line-height:1.55}
+.qr-cat-pill{display:inline-block;font-size:10px;font-weight:700;padding:2px 9px;border-radius:20px;margin-top:6px}
+.qr-empty{text-align:center;padding:3rem;color:rgba(255,255,255,0.4);font-size:14px;grid-column:1/-1}
 
 /* MODAL */
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;align-items:center;justify-content:center;padding:1.5rem}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:200;align-items:center;justify-content:center;padding:1.5rem;backdrop-filter:blur(4px)}
 .modal-overlay.open{display:flex}
-.modal{background:var(--surface);border-radius:18px;max-width:560px;width:100%;max-height:85vh;overflow-y:auto;padding:2rem;box-shadow:0 20px 60px rgba(0,0,0,0.2)}
+.modal{background:var(--surface);border-radius:20px;max-width:560px;width:100%;max-height:88vh;overflow-y:auto;box-shadow:0 25px 80px rgba(0,0,0,0.3);border:1px solid var(--border)}
+.modal-top-bar{height:6px;border-radius:20px 20px 0 0;background:linear-gradient(90deg,#3b82f6,#8b5cf6,#ec4899)}
+.modal-body-wrap{padding:1.875rem}
 .modal-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1.5rem;gap:12px}
-.modal-title{font-size:22px;font-weight:800;color:var(--text);letter-spacing:-.3px;line-height:1.2}
-.modal-close{background:var(--surface2);border:none;width:32px;height:32px;border-radius:50%;font-size:18px;cursor:pointer;color:var(--text2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.modal-title{font-size:22px;font-weight:900;color:var(--text);letter-spacing:-.4px;line-height:1.2}
+.modal-close{background:var(--surface2);border:none;width:34px;height:34px;border-radius:50%;font-size:16px;cursor:pointer;color:var(--text2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .modal-close:hover{background:var(--surface3)}
-.modal-section{margin-bottom:1.25rem}
-.modal-section h3{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--text3);margin-bottom:8px}
-.modal-section p{font-size:14px;color:var(--text2);line-height:1.7}
+.modal-section{margin-bottom:1.375rem}
+.modal-section h3{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);margin-bottom:10px}
+.modal-section p{font-size:14px;color:var(--text2);line-height:1.75}
 .key-points{list-style:none;display:flex;flex-direction:column;gap:8px}
-.key-points li{display:flex;gap:10px;font-size:14px;color:var(--text2);background:var(--surface2);padding:10px 12px;border-radius:8px;line-height:1.5}
-.key-points li::before{content:"→";color:var(--blue);font-weight:700;flex-shrink:0}
-.analogy-box{background:linear-gradient(135deg,var(--blue-light),#f0fdf4);border:1px solid #bfdbfe;border-radius:10px;padding:1rem 1.25rem;font-size:14px;color:var(--blue-text);line-height:1.7}
-.analogy-box strong{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px;color:var(--blue)}
-.modal-done-btn{width:100%;padding:12px;background:var(--green);color:#fff;border:none;border-radius:var(--radius);font-size:15px;font-weight:700;cursor:pointer;margin-top:1.25rem}
-.modal-done-btn:hover{background:#15803d}
-.modal-done-btn.undone{background:var(--surface2);color:var(--text2);border:1px solid var(--border2)}
+.key-points li{display:flex;gap:10px;font-size:14px;color:var(--text2);background:var(--surface2);padding:11px 14px;border-radius:10px;line-height:1.55;border-left:3px solid #3b82f6}
+.key-points li::before{content:"→";color:var(--blue);font-weight:800;flex-shrink:0}
+.analogy-box{background:linear-gradient(135deg,#eff6ff,#f5f3ff);border:1.5px solid #bfdbfe;border-radius:12px;padding:1.125rem 1.375rem;font-size:14px;color:#1e3a8a;line-height:1.7}
+.analogy-box strong{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;color:#3b82f6;font-weight:800}
+.modal-done-btn{width:100%;padding:13px;background:linear-gradient(135deg,#16a34a,#4ade80);color:#fff;border:none;border-radius:var(--radius);font-size:15px;font-weight:800;cursor:pointer;margin-top:1.25rem;letter-spacing:-.1px}
+.modal-done-btn:hover{filter:brightness(1.05)}
+.modal-done-btn.undone{background:var(--surface2);color:var(--text2);border:1.5px solid var(--border2)}
 
 /* FOOTER */
-footer{padding:1.5rem 2rem;border-top:1px solid var(--border);background:var(--surface);margin-top:2rem}
+footer{padding:1.75rem 2rem;background:linear-gradient(90deg,#1e1b4b,#312e81);margin-top:0}
 .footer-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
-.footer-logo{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:700;color:var(--text)}
+.footer-logo{display:flex;align-items:center;gap:10px;font-size:16px;font-weight:800;color:#fff}
 .footer-right{text-align:right}
-.footer-name{font-size:13px;font-weight:600;color:var(--text)}
-.footer-copy{font-size:12px;color:var(--text3);margin-top:2px}
-
-/* STREAK MODAL */
-.streak-grid{display:flex;gap:4px;flex-wrap:wrap;margin:1rem 0}
-.streak-day{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600}
-.streak-day.active{background:#fef3c7;color:#92400e}
-.streak-day.done{background:var(--green);color:#fff}
-.streak-day.today{background:var(--blue);color:#fff}
+.footer-name{font-size:13px;font-weight:700;color:#a5b4fc}
+.footer-copy{font-size:12px;color:rgba(255,255,255,0.4);margin-top:2px}
 
 @media(max-width:640px){
-  .hero h1{font-size:26px}
-  .main,.qr-wrap,.daily-wrap,.prog-wrap{padding:1.25rem}
+  .hero h1{font-size:28px}
+  .main,.daily-wrap,.prog-wrap,.qr-wrap{padding:1.25rem}
   .nav-links{display:none}
   .dashboard{display:none}
-  .hero-right{display:none}
-  .tabs{width:100%}
+  .tabs{overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}
   .qr-search{width:100%}
+  .qr-title-row{flex-direction:column}
 }
 </style>
 </head>
@@ -199,8 +217,8 @@ footer{padding:1.5rem 2rem;border-top:1px solid var(--border);background:var(--s
     <a href="#" onclick="openQuiz();return false">Quiz</a>
   </div>
   <div class="nav-right">
-    <div class="streak-badge" onclick="openStreak()" title="Your study streak">🔥 <span id="streak-count">0</span> day streak</div>
-    <button class="btn-nav" onclick="openQuiz()">Test me</button>
+    <div class="streak-badge" onclick="openStreak()">🔥 <span id="streak-count">0</span> day streak</div>
+    <button class="btn-nav" onclick="openQuiz()">🎯 Test me</button>
   </div>
 </nav>
 
@@ -215,27 +233,20 @@ footer{padding:1.5rem 2rem;border-top:1px solid var(--border);background:var(--s
 
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-left">
-      <div class="eyebrow">
-        <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" fill="none" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg>
-        Microsoft Azure Fundamentals
-      </div>
-      <h1>Crack AZ-900 <span>one glance</span> at a time</h1>
-      <p>18 topics. Visual cards. Built-in quiz. Study streak tracker. Everything you need to pass — in one place, for free.</p>
-      <div class="hero-btns">
-        <button class="btn-primary" onclick="document.getElementById('topics').scrollIntoView({behavior:'smooth'})">Start studying</button>
-        <button class="btn-secondary" onclick="openQuiz()">Take the quiz</button>
-      </div>
+    <div class="eyebrow">✦ Microsoft Azure Fundamentals</div>
+    <h1>Crack AZ-900 <span>one glance</span> at a time</h1>
+    <p>18 visual topic cards. Built-in quiz. Daily streak tracker. Everything you need to pass — free, no login, works everywhere.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="document.getElementById('topics').scrollIntoView({behavior:'smooth'})">🚀 Start studying</button>
+      <button class="btn-secondary" onclick="openQuiz()">🎯 Take the quiz</button>
     </div>
-    <div class="hero-right">
-      <div class="exam-card">
-        <div class="exam-card-title">AZ-900 Exam facts</div>
-        <div class="exam-row"><span class="exam-row-label">Questions</span><span class="exam-row-val">40–60</span></div>
-        <div class="exam-row"><span class="exam-row-label">Duration</span><span class="exam-row-val">60 minutes</span></div>
-        <div class="exam-row"><span class="exam-row-label">Pass score</span><span class="exam-row-val pass">700 / 1000</span></div>
-        <div class="exam-row"><span class="exam-row-label">Domains</span><span class="exam-row-val">6</span></div>
-        <div class="exam-row"><span class="exam-row-label">Cost</span><span class="exam-row-val">~$165</span></div>
-      </div>
+    <div class="domain-pills">
+      <span class="domain-pill">☁️ Cloud concepts</span>
+      <span class="domain-pill">🏗️ Architecture</span>
+      <span class="domain-pill">🖥️ Compute</span>
+      <span class="domain-pill">🔗 Networking</span>
+      <span class="domain-pill">💾 Storage</span>
+      <span class="domain-pill">🔐 Security</span>
     </div>
   </div>
 </section>
@@ -247,21 +258,21 @@ footer{padding:1.5rem 2rem;border-top:1px solid var(--border);background:var(--s
       <span class="prog-pct" id="prog-pct">0%</span>
     </div>
     <div class="prog-track"><div class="prog-fill" id="prog-fill"></div></div>
-    <div class="prog-message" id="prog-msg">18 topics remaining • Click any card to read the full explanation</div>
+    <div class="prog-message" id="prog-msg">18 topics remaining · Click any card to read the full explanation</div>
   </div>
 </div>
 
 <div class="daily-wrap">
   <div class="daily-inner">
     <div class="daily-card">
-      <div class="daily-left">
+      <div style="display:flex;align-items:center;gap:14px;flex:1">
         <div class="daily-icon" id="daily-icon">💡</div>
         <div>
-          <div class="daily-text-title" id="daily-title">Topic of the day</div>
-          <div class="daily-text-sub" id="daily-sub">Your daily focus to keep the streak alive</div>
+          <div class="daily-text-title" id="daily-title">Today's focus topic</div>
+          <div class="daily-text-sub" id="daily-sub">Study this today to keep your streak alive</div>
         </div>
       </div>
-      <button class="btn-daily" id="daily-btn" onclick="openDailyTopic()">Learn it now →</button>
+      <button class="btn-daily" id="daily-btn">Learn it now →</button>
     </div>
   </div>
 </div>
@@ -270,44 +281,41 @@ footer{padding:1.5rem 2rem;border-top:1px solid var(--border);background:var(--s
   <div class="section-hd">
     <div>
       <div class="section-title">Study cards</div>
-      <div class="section-sub">Click a card to read the full explanation. Tick the circle when you know it.</div>
+      <div class="section-sub">Click a card to read the full explanation · Tick ✓ when you know it</div>
     </div>
     <div class="section-count" id="filter-count">18 topics</div>
   </div>
-
   <div class="tabs" id="tabs">
     <div class="tab active" data-domain="all">All</div>
-    <div class="tab" data-domain="cloud">Cloud</div>
-    <div class="tab" data-domain="arch">Architecture</div>
-    <div class="tab" data-domain="compute">Compute</div>
-    <div class="tab" data-domain="network">Network</div>
-    <div class="tab" data-domain="storage">Storage</div>
-    <div class="tab" data-domain="security">Security</div>
+    <div class="tab" data-domain="cloud">☁️ Cloud</div>
+    <div class="tab" data-domain="arch">🏗️ Architecture</div>
+    <div class="tab" data-domain="compute">🖥️ Compute</div>
+    <div class="tab" data-domain="network">🔗 Network</div>
+    <div class="tab" data-domain="storage">💾 Storage</div>
+    <div class="tab" data-domain="security">🔐 Security</div>
   </div>
-
   <div class="cards" id="card-grid"></div>
-
-  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)">
-    <button class="btn-primary" onclick="openQuiz()">Test my knowledge</button>
-    <button class="btn-secondary" onclick="resetProgress()">Reset progress</button>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)">
+    <button class="btn-primary" onclick="openQuiz()">🎯 Test my knowledge</button>
+    <button class="btn-secondary" style="background:var(--surface);color:var(--text);border:1.5px solid var(--border2)" onclick="resetProgress()">Reset progress</button>
   </div>
 </div>
 
 <section class="qr-wrap" id="quickref">
   <div class="qr-inner">
-    <div class="section-hd">
+    <div class="qr-title-row">
       <div>
-        <div class="section-title">⚡ Quick reference</div>
-        <div class="section-sub">Every concept in one line. Search or filter — perfect for last-minute revision.</div>
+        <div class="qr-heading">⚡ Quick reference</div>
+        <div class="qr-sub">Every concept in one line · Search or filter · Perfect for last-minute revision</div>
       </div>
-      <input class="qr-search" id="qr-search" type="text" placeholder="Search concepts..." oninput="renderQR()">
+      <input class="qr-search" id="qr-search" type="text" placeholder="🔍 Search concepts..." oninput="renderQR()">
     </div>
     <div class="qr-cats" id="qr-cats">
       <div class="qr-cat active" data-cat="all">All</div>
-      <div class="qr-cat" data-cat="cloud">Cloud models</div>
+      <div class="qr-cat" data-cat="cloud">Cloud</div>
       <div class="qr-cat" data-cat="compute">Compute</div>
       <div class="qr-cat" data-cat="storage">Storage</div>
-      <div class="qr-cat" data-cat="network">Networking</div>
+      <div class="qr-cat" data-cat="network">Network</div>
       <div class="qr-cat" data-cat="identity">Identity</div>
       <div class="qr-cat" data-cat="cost">Cost</div>
       <div class="qr-cat" data-cat="governance">Governance</div>
@@ -321,50 +329,52 @@ footer{padding:1.5rem 2rem;border-top:1px solid var(--border);background:var(--s
 <footer>
   <div class="footer-inner">
     <div class="footer-logo">
-      <div class="logo-icon" style="width:22px;height:22px;border-radius:5px"><svg viewBox="0 0 24 24" width="12" height="12" stroke="#fff" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+      <div class="logo-icon" style="width:24px;height:24px;border-radius:6px"><svg viewBox="0 0 24 24" width="13" height="13" stroke="#fff" fill="none" stroke-width="2.5" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
       OneGlance
     </div>
     <div class="footer-right">
       <div class="footer-name">Basavaraj Goud K</div>
-      <div class="footer-copy">AZ-900 Azure Fundamentals · Free study guide</div>
+      <div class="footer-copy">AZ-900 Azure Fundamentals · Free visual study guide</div>
     </div>
   </div>
 </footer>
 
-<!-- MODAL -->
 <div class="modal-overlay" id="modal" onclick="closeModalOutside(event)">
   <div class="modal" id="modal-box">
-    <div class="modal-header">
-      <div class="modal-title" id="modal-title"></div>
-      <button class="modal-close" onclick="document.getElementById('modal').classList.remove('open')">✕</button>
+    <div class="modal-top-bar"></div>
+    <div class="modal-body-wrap">
+      <div class="modal-header">
+        <div class="modal-title" id="modal-title"></div>
+        <button class="modal-close" onclick="document.getElementById('modal').classList.remove('open')">✕</button>
+      </div>
+      <div id="modal-body"></div>
     </div>
-    <div id="modal-body"></div>
   </div>
 </div>
 
 <script>
-const topics = [
-  {id:1,domain:"cloud",icon:"☁️",bg:"#eff6ff",tag:"Core",tagBg:"#dbeafe",tagFg:"#1e40af",weight:"20–25%",title:"Cloud computing",sub:"On-demand IT resources over the internet.",what:"Cloud computing is the delivery of computing services — servers, storage, databases, networking, software — over the internet. You pay only for what you use, when you use it.",points:["IaaS: You manage OS and apps, Azure manages hardware (e.g. Virtual Machines)","PaaS: Azure manages OS too, you just manage your app (e.g. App Service)","SaaS: Azure manages everything, you just use the software (e.g. Microsoft 365)"],analogy:"Think of it like electricity. You don't build a power plant — you just plug in and pay for what you use."},
-  {id:2,domain:"cloud",icon:"⚖️",bg:"#eff6ff",tag:"Core",tagBg:"#dbeafe",tagFg:"#1e40af",weight:"20–25%",title:"CapEx vs OpEx",sub:"Capital vs operational spending model.",what:"CapEx (Capital Expenditure) = buying physical infrastructure upfront. OpEx (Operational Expenditure) = paying for services as you use them. Cloud converts IT from CapEx to OpEx.",points:["Traditional IT = CapEx: buy servers upfront, depreciate over years","Cloud = OpEx: pay monthly subscription, scale up or down anytime","Azure eliminates the need for large upfront hardware investments"],analogy:"CapEx = buying a car. OpEx = using Uber. Pay per ride, no maintenance, no upfront cost."},
-  {id:3,domain:"cloud",icon:"🔄",bg:"#eff6ff",tag:"Core",tagBg:"#dbeafe",tagFg:"#1e40af",weight:"20–25%",title:"Cloud models",sub:"Public, Private, Hybrid — when to use each.",what:"Three deployment models define where your infrastructure lives and who manages it.",points:["Public cloud: Hosted by Azure, shared infrastructure, most cost-effective","Private cloud: Your own datacenter, full control, higher cost","Hybrid cloud: Mix of both — sensitive data on-prem, rest on Azure"],analogy:"Public = apartment. Private = your own house. Hybrid = own a house but rent a hotel room when guests visit."},
-  {id:4,domain:"cloud",icon:"📐",bg:"#eff6ff",tag:"Core",tagBg:"#dbeafe",tagFg:"#1e40af",weight:"20–25%",title:"Shared responsibility",sub:"Who secures what — you vs Microsoft.",what:"Security in cloud is split between Microsoft and you. The more managed the service, the more Microsoft handles.",points:["IaaS: Microsoft secures hardware/network. You secure OS, apps, data.","PaaS: Microsoft also handles OS. You secure apps and data.","SaaS: Microsoft handles almost everything. You manage users and data access."],analogy:"Like renting an office. The landlord secures the building; you lock your own office door."},
-  {id:5,domain:"arch",icon:"🌍",bg:"#f5f3ff",tag:"Architecture",tagBg:"#ede9fe",tagFg:"#4c1d95",weight:"15–20%",title:"Regions & geographies",sub:"Azure's 60+ regions worldwide.",what:"Azure operates in 60+ regions globally. A region is a set of datacenters in a geographic location. Geographies ensure data residency and compliance.",points:["Pick a region close to your users to reduce latency","Some data must stay in specific countries (e.g. GDPR in Europe)","Paired regions: each region is paired with another for disaster recovery"],analogy:"Regions are like post offices in different cities. Your data lives in the closest one to your users."},
-  {id:6,domain:"arch",icon:"🏢",bg:"#f5f3ff",tag:"Architecture",tagBg:"#ede9fe",tagFg:"#4c1d95",weight:"15–20%",title:"Availability zones",sub:"Protection from datacenter failure.",what:"Availability Zones are physically separate datacenters within one Azure region. Each has its own power, cooling, and networking.",points:["Minimum 3 zones per supported region","If one zone goes down, others keep running — zero downtime","Use zones for mission-critical apps that can't tolerate outages"],analogy:"Like 3 generators in 3 different buildings. If one fails, the others keep the lights on."},
-  {id:7,domain:"arch",icon:"📦",bg:"#f5f3ff",tag:"Architecture",tagBg:"#ede9fe",tagFg:"#4c1d95",weight:"15–20%",title:"Resource groups",sub:"Logical containers for Azure resources.",what:"A Resource Group is a container that holds related Azure resources. Every Azure resource must belong to exactly one resource group.",points:["Group resources by project, environment, or lifecycle","Delete a resource group = deletes everything inside it","Apply permissions and policies at the group level"],analogy:"Like a project folder on your computer. Everything for that project in one place."},
-  {id:8,domain:"arch",icon:"🔑",bg:"#f5f3ff",tag:"Architecture",tagBg:"#ede9fe",tagFg:"#4c1d95",weight:"15–20%",title:"Subscriptions & tenants",sub:"Billing vs identity boundary.",what:"A Subscription is a billing unit. A Tenant is your organization's identity in Azure AD. One org can have many subscriptions.",points:["Subscription = billing boundary (like a credit card)","Tenant = identity boundary (your company in Azure AD)","Management Groups sit above subscriptions to govern multiple at once"],analogy:"Tenant = your company. Subscription = company credit card. Resource Group = what you bought."},
-  {id:9,domain:"compute",icon:"🖥️",bg:"#fff7ed",tag:"Compute",tagBg:"#fed7aa",tagFg:"#7c2d12",weight:"15–20%",title:"Virtual Machines",sub:"Full IaaS — you manage the OS.",what:"Azure VMs are IaaS offerings — a full virtualized computer in the cloud. You choose the OS, size, and software.",points:["Full control — install anything, configure anything","You handle OS updates, security patches, and maintenance","VM Scale Sets: automatically add/remove VMs based on demand"],analogy:"Renting an empty apartment. You bring your own furniture and are responsible for upkeep."},
-  {id:10,domain:"compute",icon:"📦",bg:"#fff7ed",tag:"Compute",tagBg:"#fed7aa",tagFg:"#7c2d12",weight:"15–20%",title:"Containers & AKS",sub:"Lightweight alternative to VMs.",what:"Containers package an app and its dependencies into one portable unit. AKS (Azure Kubernetes Service) orchestrates large numbers of containers.",points:["Containers share the host OS — lighter and faster than VMs","ACI: run a single container quickly, no cluster needed","AKS: manages clusters of containers with auto-scaling"],analogy:"VMs are houses. Containers are shipping containers — standard size, stack anywhere, move easily."},
-  {id:11,domain:"compute",icon:"⚡",bg:"#fff7ed",tag:"Compute",tagBg:"#fed7aa",tagFg:"#7c2d12",weight:"15–20%",title:"Azure Functions",sub:"Serverless — pay per execution.",what:"Azure Functions is serverless compute. You write code that runs in response to triggers. No server management needed.",points:["Pay only when your code runs — billed per execution","Triggered by HTTP, timers, database changes, queues, and more","Best for small, event-driven tasks — not long-running processes"],analogy:"Like a vending machine. Nothing runs until you press a button. You only pay when something dispenses."},
-  {id:12,domain:"compute",icon:"🌐",bg:"#fff7ed",tag:"Compute",tagBg:"#fed7aa",tagFg:"#7c2d12",weight:"15–20%",title:"App Service",sub:"PaaS for web apps — no server needed.",what:"Azure App Service is a fully managed PaaS for hosting web apps, REST APIs, and mobile backends.",points:["Supports .NET, Java, Python, Node.js, PHP, Ruby","Built-in auto-scaling, load balancing, and SSL","No OS or runtime management — just deploy your code"],analogy:"A serviced apartment. You just move in — no maintenance, no plumbing, all included."},
-  {id:13,domain:"network",icon:"🔗",bg:"#f0fdf4",tag:"Network",tagBg:"#bbf7d0",tagFg:"#14532d",weight:"10–15%",title:"Virtual Network (VNet)",sub:"Your private network in Azure.",what:"An Azure VNet is your private, isolated network in Azure. Resources inside communicate securely.",points:["Divide into subnets to organize resources and control traffic","VNet Peering: connect two VNets so they communicate privately","VPN Gateway: connect your on-premises network to Azure securely"],analogy:"Your home Wi-Fi network. Devices inside talk freely; outsiders can't get in unless you allow them."},
-  {id:14,domain:"network",icon:"🛡️",bg:"#f0fdf4",tag:"Network",tagBg:"#bbf7d0",tagFg:"#14532d",weight:"10–15%",title:"Firewall & NSG",sub:"NSG for rules, Firewall for managed protection.",what:"NSGs are basic traffic filters — allow or deny traffic. Azure Firewall is a managed, enterprise-grade firewall.",points:["NSG: rule-based, applied to subnet or NIC — free","Azure Firewall: fully managed, enterprise-grade, paid","DDoS Protection: defends against denial-of-service attacks"],analogy:"NSG = a basic door lock. Azure Firewall = a professional security guard at the entrance."},
-  {id:15,domain:"storage",icon:"💾",bg:"#fffbeb",tag:"Storage",tagBg:"#fde68a",tagFg:"#78350f",weight:"10–15%",title:"Storage account types",sub:"Blob, File, Queue, Table.",what:"An Azure Storage Account provides four main storage types, each for a different use case.",points:["Blob: unstructured data — images, videos, backups","File: managed file shares via SMB protocol","Queue: message queuing between app components","Table: NoSQL key-value store for structured data"],analogy:"Blob = filing cabinet. File = shared drive. Queue = to-do list. Table = spreadsheet."},
-  {id:16,domain:"storage",icon:"♻️",bg:"#fffbeb",tag:"Storage",tagBg:"#fde68a",tagFg:"#78350f",weight:"10–15%",title:"Storage tiers",sub:"Hot, Cool, Archive — by access frequency.",what:"Azure Blob Storage has three access tiers to balance cost vs access speed.",points:["Hot: frequently accessed — highest storage cost, lowest access cost","Cool: infrequently accessed (30+ days) — lower storage cost","Archive: rarely accessed (180+ days) — must 'rehydrate' to read"],analogy:"Hot = items on your desk. Cool = items in a drawer. Archive = items in a storage unit across town."},
-  {id:17,domain:"security",icon:"🔐",bg:"#fdf4ff",tag:"Security",tagBg:"#f3e8ff",tagFg:"#581c87",weight:"25–30%",title:"Azure Active Directory",sub:"Identity and access management.",what:"Azure AD (Entra ID) is Microsoft's cloud identity service. It controls who can sign in and what they can access.",points:["SSO: one login for all connected apps","MFA: adds a second verification step beyond password","Conditional Access: grant access based on location, device, or risk"],analogy:"Azure AD is like a company receptionist. They verify who you are before letting you into any room."},
-  {id:18,domain:"security",icon:"📊",bg:"#fdf4ff",tag:"Security",tagBg:"#f3e8ff",tagFg:"#581c87",weight:"25–30%",title:"Azure Cost Management",sub:"Budgets, alerts, pricing calculator.",what:"Azure Cost Management helps you monitor, allocate, and optimize Azure spending.",points:["Pricing Calculator: estimate costs before you deploy anything","TCO Calculator: compare on-prem vs Azure costs","Budgets and Alerts: get notified before you exceed your spending limit"],analogy:"Like a banking app for Azure — see where money goes, set limits, get alerts before you overspend."}
+const topics=[
+  {id:1,domain:"cloud",icon:"☁️",bg:"linear-gradient(135deg,#dbeafe,#bfdbfe)",tag:"Core",tagBg:"#dbeafe",tagFg:"#1e40af",weight:"20–25%",title:"Cloud computing",sub:"On-demand IT resources over the internet.",what:"Cloud computing is the delivery of computing services — servers, storage, databases, networking, software — over the internet. You pay only for what you use, when you use it.",points:["IaaS: You manage OS and apps, Azure manages hardware (e.g. Virtual Machines)","PaaS: Azure manages OS too, you just manage your app (e.g. App Service)","SaaS: Azure manages everything, you just use the software (e.g. Microsoft 365)"],analogy:"Think of it like electricity. You don't build a power plant — you just plug in and pay for what you use."},
+  {id:2,domain:"cloud",icon:"⚖️",bg:"linear-gradient(135deg,#dbeafe,#bfdbfe)",tag:"Core",tagBg:"#dbeafe",tagFg:"#1e40af",weight:"20–25%",title:"CapEx vs OpEx",sub:"Capital vs operational spending model.",what:"CapEx (Capital Expenditure) = buying physical infrastructure upfront. OpEx (Operational Expenditure) = paying for services as you use them. Cloud converts IT from CapEx to OpEx.",points:["Traditional IT = CapEx: buy servers upfront, depreciate over years","Cloud = OpEx: pay monthly subscription, scale up or down anytime","Azure eliminates the need for large upfront hardware investments"],analogy:"CapEx = buying a car. OpEx = using Uber. Pay per ride, no maintenance, no upfront cost."},
+  {id:3,domain:"cloud",icon:"🔄",bg:"linear-gradient(135deg,#dbeafe,#bfdbfe)",tag:"Core",tagBg:"#dbeafe",tagFg:"#1e40af",weight:"20–25%",title:"Cloud models",sub:"Public, Private, Hybrid — when to use each.",what:"Three deployment models define where your infrastructure lives and who manages it.",points:["Public cloud: Hosted by Azure, shared infrastructure, most cost-effective","Private cloud: Your own datacenter, full control, higher cost","Hybrid cloud: Mix of both — sensitive data on-prem, rest on Azure"],analogy:"Public = apartment. Private = your own house. Hybrid = own a house but rent extra rooms when guests visit."},
+  {id:4,domain:"cloud",icon:"📐",bg:"linear-gradient(135deg,#dbeafe,#bfdbfe)",tag:"Core",tagBg:"#dbeafe",tagFg:"#1e40af",weight:"20–25%",title:"Shared responsibility",sub:"Who secures what — you vs Microsoft.",what:"Security in cloud is split between Microsoft and you. The more managed the service, the more Microsoft handles.",points:["IaaS: Microsoft secures hardware/network. You secure OS, apps, data.","PaaS: Microsoft also handles OS. You secure apps and data.","SaaS: Microsoft handles almost everything. You manage users and data access."],analogy:"Like renting an office. The landlord secures the building; you lock your own office door."},
+  {id:5,domain:"arch",icon:"🌍",bg:"linear-gradient(135deg,#ede9fe,#ddd6fe)",tag:"Architecture",tagBg:"#ede9fe",tagFg:"#4c1d95",weight:"15–20%",title:"Regions & geographies",sub:"Azure's 60+ regions worldwide.",what:"Azure operates in 60+ regions globally. A region is a set of datacenters in a geographic location. Geographies ensure data residency and compliance.",points:["Pick a region close to your users to reduce latency","Some data must stay in specific countries (e.g. GDPR in Europe)","Paired regions: each region is paired with another for disaster recovery"],analogy:"Regions are like post offices in different cities. Your data lives in the closest one to your users."},
+  {id:6,domain:"arch",icon:"🏢",bg:"linear-gradient(135deg,#ede9fe,#ddd6fe)",tag:"Architecture",tagBg:"#ede9fe",tagFg:"#4c1d95",weight:"15–20%",title:"Availability zones",sub:"Protection from datacenter failure.",what:"Availability Zones are physically separate datacenters within one Azure region. Each has its own power, cooling, and networking.",points:["Minimum 3 zones per supported region","If one zone goes down, others keep running — zero downtime","Use zones for mission-critical apps that can't tolerate outages"],analogy:"Like 3 generators in 3 different buildings. If one fails, the others keep the lights on."},
+  {id:7,domain:"arch",icon:"📦",bg:"linear-gradient(135deg,#ede9fe,#ddd6fe)",tag:"Architecture",tagBg:"#ede9fe",tagFg:"#4c1d95",weight:"15–20%",title:"Resource groups",sub:"Logical containers for Azure resources.",what:"A Resource Group is a container that holds related Azure resources. Every Azure resource must belong to exactly one resource group.",points:["Group resources by project, environment, or lifecycle","Delete a resource group = deletes everything inside it","Apply permissions and policies at the group level"],analogy:"Like a project folder on your computer. Everything for that project in one place."},
+  {id:8,domain:"arch",icon:"🔑",bg:"linear-gradient(135deg,#ede9fe,#ddd6fe)",tag:"Architecture",tagBg:"#ede9fe",tagFg:"#4c1d95",weight:"15–20%",title:"Subscriptions & tenants",sub:"Billing vs identity boundary.",what:"A Subscription is a billing unit. A Tenant is your organization's identity in Azure AD. One org can have many subscriptions.",points:["Subscription = billing boundary (like a credit card)","Tenant = identity boundary (your company in Azure AD)","Management Groups sit above subscriptions to govern multiple at once"],analogy:"Tenant = your company. Subscription = company credit card. Resource Group = what you bought."},
+  {id:9,domain:"compute",icon:"🖥️",bg:"linear-gradient(135deg,#fed7aa,#fdba74)",tag:"Compute",tagBg:"#fed7aa",tagFg:"#7c2d12",weight:"15–20%",title:"Virtual Machines",sub:"Full IaaS — you manage the OS.",what:"Azure VMs are IaaS offerings — a full virtualized computer in the cloud. You choose the OS, size, and software.",points:["Full control — install anything, configure anything","You handle OS updates, security patches, and maintenance","VM Scale Sets: automatically add/remove VMs based on demand"],analogy:"Renting an empty apartment. You bring your own furniture and are responsible for upkeep."},
+  {id:10,domain:"compute",icon:"📦",bg:"linear-gradient(135deg,#fed7aa,#fdba74)",tag:"Compute",tagBg:"#fed7aa",tagFg:"#7c2d12",weight:"15–20%",title:"Containers & AKS",sub:"Lightweight alternative to VMs.",what:"Containers package an app and its dependencies into one portable unit. AKS (Azure Kubernetes Service) orchestrates large numbers of containers.",points:["Containers share the host OS — lighter and faster than VMs","ACI: run a single container quickly, no cluster needed","AKS: manages clusters of containers with auto-scaling"],analogy:"VMs are houses. Containers are shipping containers — standard size, stack anywhere, move easily."},
+  {id:11,domain:"compute",icon:"⚡",bg:"linear-gradient(135deg,#fed7aa,#fdba74)",tag:"Compute",tagBg:"#fed7aa",tagFg:"#7c2d12",weight:"15–20%",title:"Azure Functions",sub:"Serverless — pay per execution.",what:"Azure Functions is serverless compute. You write code that runs in response to triggers. No server management needed.",points:["Pay only when your code runs — billed per execution","Triggered by HTTP, timers, database changes, queues, and more","Best for small, event-driven tasks — not long-running processes"],analogy:"Like a vending machine. Nothing runs until you press a button. You only pay when something dispenses."},
+  {id:12,domain:"compute",icon:"🌐",bg:"linear-gradient(135deg,#fed7aa,#fdba74)",tag:"Compute",tagBg:"#fed7aa",tagFg:"#7c2d12",weight:"15–20%",title:"App Service",sub:"PaaS for web apps — no server needed.",what:"Azure App Service is a fully managed PaaS for hosting web apps, REST APIs, and mobile backends.",points:["Supports .NET, Java, Python, Node.js, PHP, Ruby","Built-in auto-scaling, load balancing, and SSL","No OS or runtime management — just deploy your code"],analogy:"A serviced apartment. You just move in — no maintenance, no plumbing, all included."},
+  {id:13,domain:"network",icon:"🔗",bg:"linear-gradient(135deg,#bbf7d0,#86efac)",tag:"Network",tagBg:"#bbf7d0",tagFg:"#14532d",weight:"10–15%",title:"Virtual Network (VNet)",sub:"Your private network in Azure.",what:"An Azure VNet is your private, isolated network in Azure. Resources inside communicate securely.",points:["Divide into subnets to organize resources and control traffic","VNet Peering: connect two VNets so they communicate privately","VPN Gateway: connect your on-premises network to Azure securely"],analogy:"Your home Wi-Fi network. Devices inside talk freely; outsiders can't get in unless you allow them."},
+  {id:14,domain:"network",icon:"🛡️",bg:"linear-gradient(135deg,#bbf7d0,#86efac)",tag:"Network",tagBg:"#bbf7d0",tagFg:"#14532d",weight:"10–15%",title:"Firewall & NSG",sub:"NSG for rules, Firewall for managed protection.",what:"NSGs are basic traffic filters — allow or deny traffic. Azure Firewall is a managed, enterprise-grade firewall.",points:["NSG: rule-based, applied to subnet or NIC — free","Azure Firewall: fully managed, enterprise-grade, paid","DDoS Protection: defends against denial-of-service attacks"],analogy:"NSG = a basic door lock. Azure Firewall = a professional security guard at the entrance."},
+  {id:15,domain:"storage",icon:"💾",bg:"linear-gradient(135deg,#fde68a,#fcd34d)",tag:"Storage",tagBg:"#fde68a",tagFg:"#78350f",weight:"10–15%",title:"Storage account types",sub:"Blob, File, Queue, Table.",what:"An Azure Storage Account provides four main storage types, each for a different use case.",points:["Blob: unstructured data — images, videos, backups","File: managed file shares via SMB protocol","Queue: message queuing between app components","Table: NoSQL key-value store for structured data"],analogy:"Blob = filing cabinet. File = shared drive. Queue = to-do list. Table = spreadsheet."},
+  {id:16,domain:"storage",icon:"♻️",bg:"linear-gradient(135deg,#fde68a,#fcd34d)",tag:"Storage",tagBg:"#fde68a",tagFg:"#78350f",weight:"10–15%",title:"Storage tiers",sub:"Hot, Cool, Archive — by access frequency.",what:"Azure Blob Storage has three access tiers to balance cost vs access speed.",points:["Hot: frequently accessed — highest storage cost, lowest access cost","Cool: infrequently accessed (30+ days) — lower storage cost","Archive: rarely accessed (180+ days) — must 'rehydrate' to read"],analogy:"Hot = items on your desk. Cool = items in a drawer. Archive = items in a storage unit across town."},
+  {id:17,domain:"security",icon:"🔐",bg:"linear-gradient(135deg,#f3e8ff,#e9d5ff)",tag:"Security",tagBg:"#f3e8ff",tagFg:"#581c87",weight:"25–30%",title:"Azure Active Directory",sub:"Identity and access management.",what:"Azure AD (Entra ID) is Microsoft's cloud identity service. It controls who can sign in and what they can access.",points:["SSO: one login for all connected apps","MFA: adds a second verification step beyond password","Conditional Access: grant access based on location, device, or risk"],analogy:"Azure AD is like a company receptionist. They verify who you are before letting you into any room."},
+  {id:18,domain:"security",icon:"📊",bg:"linear-gradient(135deg,#f3e8ff,#e9d5ff)",tag:"Security",tagBg:"#f3e8ff",tagFg:"#581c87",weight:"25–30%",title:"Azure Cost Management",sub:"Budgets, alerts, pricing calculator.",what:"Azure Cost Management helps you monitor, allocate, and optimize Azure spending.",points:["Pricing Calculator: estimate costs before you deploy anything","TCO Calculator: compare on-prem vs Azure costs","Budgets and Alerts: get notified before you exceed your spending limit"],analogy:"Like a banking app for Azure — see where money goes, set limits, get alerts before you overspend."}
 ];
 
-const qrData = [
+const qrData=[
   {concept:"Cloud Computing",remember:"Rent IT resources over the internet",cat:"cloud"},
   {concept:"Public Cloud",remember:"Lowest cost, easiest scaling",cat:"cloud"},
   {concept:"Private Cloud",remember:"Maximum control and security",cat:"cloud"},
@@ -431,33 +441,19 @@ const qrData = [
   {concept:"Read-Only Lock",remember:"Can't modify or delete the resource",cat:"governance"}
 ];
 
-const catColors = {
+const catColors={
   cloud:["#dbeafe","#1e40af"],compute:["#fed7aa","#7c2d12"],storage:["#fde68a","#78350f"],
   network:["#bbf7d0","#14532d"],identity:["#f3e8ff","#581c87"],cost:["#dcfce7","#14532d"],
   governance:["#ede9fe","#4c1d95"],arch:["#e0e7ff","#312e81"],responsibility:["#dbeafe","#1e3a8a"]
 };
-const catLabels = {cloud:"Cloud",compute:"Compute",storage:"Storage",network:"Network",identity:"Identity",cost:"Cost",governance:"Governance",arch:"Architecture",responsibility:"Responsibility"};
+const catLabels={cloud:"Cloud",compute:"Compute",storage:"Storage",network:"Network",identity:"Identity",cost:"Cost",governance:"Governance",arch:"Architecture",responsibility:"Responsibility"};
 
-const done = new Set(JSON.parse(localStorage.getItem('og-done')||'[]'));
-let streakDays = JSON.parse(localStorage.getItem('og-streak')||'[]');
-const todayStr = new Date().toISOString().slice(0,10);
+const done=new Set(JSON.parse(localStorage.getItem('og-done')||'[]'));
+let streakDays=JSON.parse(localStorage.getItem('og-streak')||'[]');
+const todayStr=new Date().toISOString().slice(0,10);
 
-function markToday(){
-  if(!streakDays.includes(todayStr)){streakDays.push(todayStr);localStorage.setItem('og-streak',JSON.stringify(streakDays));}
-}
-
-function getStreak(){
-  const sorted = [...new Set(streakDays)].sort().reverse();
-  let streak=0,d=new Date();
-  for(let i=0;i<60;i++){
-    const s=d.toISOString().slice(0,10);
-    if(sorted.includes(s)){streak++;d.setDate(d.getDate()-1);}
-    else if(i===0){d.setDate(d.getDate()-1);}
-    else break;
-  }
-  return streak;
-}
-
+function markToday(){if(!streakDays.includes(todayStr)){streakDays.push(todayStr);localStorage.setItem('og-streak',JSON.stringify(streakDays));}}
+function getStreak(){const sorted=[...new Set(streakDays)].sort().reverse();let streak=0,d=new Date();for(let i=0;i<60;i++){const s=d.toISOString().slice(0,10);if(sorted.includes(s)){streak++;d.setDate(d.getDate()-1);}else if(i===0){d.setDate(d.getDate()-1);}else break;}return streak;}
 function saveDone(){localStorage.setItem('og-done',JSON.stringify([...done]));}
 
 function updateDash(){
@@ -471,16 +467,9 @@ function updateDash(){
   document.getElementById('prog-fill').style.width=pct+'%';
   document.getElementById('prog-pct').textContent=pct+'%';
   const left=topics.length-done.size;
-  if(pct===100){
-    document.getElementById('prog-label').textContent='🎉 All topics complete — you are exam ready!';
-    document.getElementById('prog-msg').textContent='Excellent work. Take the quiz to confirm your readiness.';
-  } else if(pct>=50){
-    document.getElementById('prog-label').textContent=`Great progress — ${done.size} of ${topics.length} topics done`;
-    document.getElementById('prog-msg').textContent=`${left} topics remaining. Keep going!`;
-  } else {
-    document.getElementById('prog-label').textContent=`${done.size} of ${topics.length} topics done`;
-    document.getElementById('prog-msg').textContent=`${left} topics remaining · Click any card to read the full explanation`;
-  }
+  if(pct===100){document.getElementById('prog-label').textContent='🎉 All 18 topics complete — you are exam ready!';document.getElementById('prog-msg').textContent='Outstanding! Take the quiz to confirm your readiness.';}
+  else if(pct>=50){document.getElementById('prog-label').textContent=`💪 Great progress — ${done.size} of ${topics.length} done`;document.getElementById('prog-msg').textContent=`${left} topics remaining. You're more than halfway there!`;}
+  else{document.getElementById('prog-label').textContent=`${done.size} of ${topics.length} topics done`;document.getElementById('prog-msg').textContent=`${left} topics remaining · Click any card to read the full explanation`;}
 }
 
 function render(filter){
@@ -488,7 +477,7 @@ function render(filter){
   const filtered=filter==='all'?topics:topics.filter(t=>t.domain===filter);
   document.getElementById('filter-count').textContent=filtered.length+' topics';
   grid.innerHTML=filtered.map(t=>`
-    <div class="card${done.has(t.id)?' done':''}" id="card-${t.id}">
+    <div class="card${done.has(t.id)?' done':''}" data-domain="${t.domain}" id="card-${t.id}">
       <div class="card-top">
         <div class="card-left" onclick="openModal(${t.id})">
           <div class="card-icon" style="background:${t.bg}">${t.icon}</div>
@@ -504,7 +493,7 @@ function render(filter){
       <div class="card-footer">
         <span class="tag" style="background:${t.tagBg};color:${t.tagFg}">${t.tag}</span>
         <span class="weight-tag">Exam: ${t.weight}</span>
-        <span class="card-read" onclick="openModal(${t.id})">Read →</span>
+        <span class="card-read" onclick="openModal(${t.id})">Read more →</span>
       </div>
     </div>
   `).join('');
@@ -514,8 +503,7 @@ function render(filter){
 function toggleDone(id){
   if(done.has(id)){done.delete(id);}else{done.add(id);markToday();}
   saveDone();
-  const activeTab=document.querySelector('.tab.active').dataset.domain;
-  render(activeTab);
+  render(document.querySelector('.tab.active').dataset.domain);
 }
 
 function openModal(id){
@@ -538,16 +526,14 @@ function modalToggle(id){
   const btn=document.getElementById('modal-done-btn');
   if(done.has(id)){btn.textContent='✓ Marked as done — click to undo';btn.classList.add('undone');}
   else{btn.textContent='Mark as done ✓';btn.classList.remove('undone');}
-  const activeTab=document.querySelector('.tab.active').dataset.domain;
-  render(activeTab);
+  render(document.querySelector('.tab.active').dataset.domain);
 }
 
 function closeModalOutside(e){if(e.target===document.getElementById('modal'))document.getElementById('modal').classList.remove('open');}
 
-// Daily topic
 function setDailyTopic(){
-  const dayIndex=Math.floor(Date.now()/86400000)%topics.length;
-  const t=topics[dayIndex];
+  const idx=Math.floor(Date.now()/86400000)%topics.length;
+  const t=topics[idx];
   document.getElementById('daily-icon').textContent=t.icon;
   document.getElementById('daily-title').textContent='Today: '+t.title;
   document.getElementById('daily-sub').textContent=t.sub;
@@ -560,21 +546,20 @@ function openStreak(){
   const last14=[];
   for(let i=13;i>=0;i--){const d=new Date();d.setDate(d.getDate()-i);last14.push(d.toISOString().slice(0,10));}
   document.getElementById('modal-body').innerHTML=`
-    <p style="font-size:14px;color:var(--text2);margin-bottom:1rem">Come back every day to keep your streak alive. Each time you tick a topic, today counts as studied.</p>
-    <div style="display:flex;gap:8px;align-items:flex-end;margin-bottom:1.5rem">
-      <div style="font-size:48px;font-weight:800;color:var(--text)">${streak}</div>
-      <div style="font-size:15px;color:var(--text2);padding-bottom:10px">day${streak!==1?'s':''}<br>in a row</div>
+    <p style="font-size:14px;color:var(--text2);margin-bottom:1.25rem">Come back every day to keep your streak alive. Each time you tick a topic, today counts as studied.</p>
+    <div style="display:flex;gap:8px;align-items:flex-end;margin-bottom:1.75rem">
+      <div style="font-size:52px;font-weight:900;background:linear-gradient(135deg,#f59e0b,#ef4444);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">${streak}</div>
+      <div style="font-size:15px;color:var(--text2);padding-bottom:12px">day${streak!==1?'s':''} in a row</div>
     </div>
-    <h3 style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);margin-bottom:8px">Last 14 days</h3>
+    <h3 style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--text3);margin-bottom:10px">Last 14 days</h3>
     <div style="display:flex;gap:5px;flex-wrap:wrap">
       ${last14.map(d=>{
-        const isToday=d===todayStr;
-        const isDone=streakDays.includes(d);
+        const isToday=d===todayStr,isDone=streakDays.includes(d);
         const label=new Date(d+'T12:00:00').toLocaleDateString('en',{weekday:'short'}).slice(0,2);
-        const bg=isToday?'var(--blue)':isDone?'var(--green)':'var(--surface2)';
+        const bg=isToday?'linear-gradient(135deg,#3b82f6,#8b5cf6)':isDone?'linear-gradient(135deg,#16a34a,#4ade80)':'var(--surface2)';
         const fg=isToday||isDone?'#fff':'var(--text3)';
-        return`<div style="width:36px;height:42px;border-radius:8px;background:${bg};display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px">
-          <span style="font-size:9px;font-weight:600;color:${fg}">${label}</span>
+        return`<div style="width:38px;height:46px;border-radius:10px;background:${bg};display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;box-shadow:${isToday||isDone?'0 2px 8px rgba(0,0,0,0.15)':'none'}">
+          <span style="font-size:9px;font-weight:700;color:${fg}">${label}</span>
           <span style="font-size:14px">${isToday?'📍':isDone?'✓':''}</span>
         </div>`;
       }).join('')}
@@ -584,7 +569,6 @@ function openStreak(){
   document.getElementById('modal').classList.add('open');
 }
 
-// QUIZ
 function openQuiz(){
   const qs=[
     {q:"What does IaaS stand for?",opts:["Internet as a Service","Infrastructure as a Service","Integration as a Service","Identity as a Service"],ans:1},
@@ -605,18 +589,15 @@ function openQuiz(){
     const q=qs[current];
     document.getElementById('modal-title').textContent=`Question ${current+1} of ${qs.length}`;
     document.getElementById('modal-body').innerHTML=`
-      <div style="margin-bottom:4px">
-        <div style="width:100%;height:4px;background:var(--surface2);border-radius:99px;margin-bottom:1.25rem"><div style="width:${((current)/qs.length*100).toFixed(0)}%;height:100%;background:var(--blue);border-radius:99px"></div></div>
-        <div style="font-size:16px;font-weight:700;color:var(--text);margin-bottom:1.25rem;line-height:1.5">${q.q}</div>
-        <div style="display:flex;flex-direction:column;gap:8px">
-          ${q.opts.map((o,i)=>`<button onclick="answer(${i})" style="text-align:left;padding:12px 16px;border-radius:${10}px;border:1.5px solid var(--border);background:var(--surface);font-size:14px;cursor:pointer;color:var(--text);font-family:inherit;transition:border-color .15s" onmouseover="this.style.borderColor='var(--blue-mid)'" onmouseout="this.style.borderColor='var(--border)'">${o}</button>`).join('')}
-        </div>
+      <div style="width:100%;height:5px;background:var(--surface2);border-radius:99px;margin-bottom:1.375rem;overflow:hidden"><div style="width:${(current/qs.length*100).toFixed(0)}%;height:100%;background:linear-gradient(90deg,#3b82f6,#8b5cf6);border-radius:99px"></div></div>
+      <div style="font-size:17px;font-weight:700;color:var(--text);margin-bottom:1.375rem;line-height:1.5">${q.q}</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        ${q.opts.map((o,i)=>`<button onclick="answer(${i})" style="text-align:left;padding:13px 16px;border-radius:12px;border:2px solid var(--border);background:var(--surface);font-size:14px;cursor:pointer;color:var(--text);font-family:inherit;font-weight:500;transition:all .15s" onmouseover="this.style.borderColor='#3b82f6';this.style.background='#eff6ff'" onmouseout="this.style.borderColor='var(--border)';this.style.background='var(--surface)'">${o}</button>`).join('')}
       </div>
     `;
   }
   window.answer=function(i){
-    const q=qs[current];const correct=i===q.ans;
-    if(correct)score++;
+    const q=qs[current];const correct=i===q.ans;if(correct)score++;
     const btns=document.querySelectorAll('#modal-body button');
     btns.forEach((b,idx)=>{
       b.style.cursor='default';b.onclick=null;b.onmouseover=null;b.onmouseout=null;
@@ -628,18 +609,18 @@ function openQuiz(){
       if(current<qs.length)renderQ();
       else{
         const pct=Math.round(score/qs.length*100);
-        const emoji=score>=10?'🏆':score>=7?'🎉':score>=5?'👍':'📚';
-        const msg=score>=10?'Outstanding! You are fully exam ready.':score>=7?'Great score! Review the ones you missed.':score>=5?'Good progress — keep studying the cards.':'Keep going — review the topic cards and try again.';
+        const emoji=score>=10?'🏆':score>=8?'🎉':score>=6?'👍':'📚';
+        const msg=score>=10?'Outstanding! You are fully exam ready.':score>=8?'Great score! Review the ones you missed.':score>=6?'Good progress — keep studying the cards.':'Keep going — review the topic cards and try again.';
         document.getElementById('modal-title').textContent='Quiz complete!';
         document.getElementById('modal-body').innerHTML=`
           <div style="text-align:center;padding:1rem 0">
-            <div style="font-size:56px;margin-bottom:.75rem">${emoji}</div>
-            <div style="font-size:36px;font-weight:800;color:var(--text);margin-bottom:.5rem">${score}<span style="font-size:20px;color:var(--text3)"> / ${qs.length}</span></div>
-            <div style="font-size:18px;font-weight:700;color:var(--text);margin-bottom:.5rem">${pct}%</div>
-            <div style="font-size:14px;color:var(--text2);margin-bottom:2rem;max-width:320px;margin-left:auto;margin-right:auto">${msg}</div>
+            <div style="font-size:60px;margin-bottom:.875rem">${emoji}</div>
+            <div style="font-size:40px;font-weight:900;background:linear-gradient(135deg,#3b82f6,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.25rem">${score}<span style="font-size:22px;opacity:.5"> / ${qs.length}</span></div>
+            <div style="font-size:20px;font-weight:800;color:var(--text);margin-bottom:.5rem">${pct}%</div>
+            <div style="font-size:14px;color:var(--text2);margin-bottom:2rem;max-width:300px;margin-left:auto;margin-right:auto;line-height:1.6">${msg}</div>
             <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
               <button class="btn-primary" onclick="openQuiz()">Try again</button>
-              <button class="btn-secondary" onclick="document.getElementById('modal').classList.remove('open')">Back to topics</button>
+              <button class="btn-secondary" style="background:var(--surface2);color:var(--text);border:1.5px solid var(--border2)" onclick="document.getElementById('modal').classList.remove('open')">Back to topics</button>
             </div>
           </div>
         `;
@@ -652,11 +633,7 @@ function openQuiz(){
 }
 
 function resetProgress(){
-  if(confirm('Reset all your progress? This cannot be undone.')){
-    done.clear();saveDone();
-    const activeTab=document.querySelector('.tab.active').dataset.domain;
-    render(activeTab);
-  }
+  if(confirm('Reset all your progress? This cannot be undone.')){done.clear();saveDone();render(document.querySelector('.tab.active').dataset.domain);}
 }
 
 function renderQR(){
@@ -666,9 +643,9 @@ function renderQR(){
   if(cat!=='all')filtered=filtered.filter(r=>r.cat===cat);
   if(search)filtered=filtered.filter(r=>r.concept.toLowerCase().includes(search)||r.remember.toLowerCase().includes(search));
   const grid=document.getElementById('qr-grid');
-  if(filtered.length===0){grid.innerHTML='<div class="qr-empty">No matching concepts found.</div>';return;}
+  if(!filtered.length){grid.innerHTML='<div class="qr-empty">No matching concepts found.</div>';return;}
   grid.innerHTML=filtered.map(r=>{
-    const [bg,fg]=(catColors[r.cat]||["#dbeafe","#1e40af"]);
+    const[bg,fg]=(catColors[r.cat]||["#dbeafe","#1e40af"]);
     return`<div class="qr-item">
       <div class="qr-concept">${r.concept}</div>
       <div class="qr-remember">${r.remember}</div>
@@ -688,10 +665,7 @@ document.getElementById('qr-cats').addEventListener('click',e=>{
   cat.classList.add('active');renderQR();
 });
 
-markToday();
-render('all');
-setDailyTopic();
-renderQR();
+markToday();render('all');setDailyTopic();renderQR();
 </script>
 </body>
 </html>
