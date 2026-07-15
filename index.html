@@ -35,13 +35,31 @@
   --pink:#db2777;--pink-light:#fdf2f8;--pink-text:#831843;
   --orange:#ea580c;--orange-light:#fff7ed;--orange-text:#7c2d12;
   --red:#dc2626;--red-light:#fef2f2;
+  /* Light mode tokens */
   --bg:#f8f7ff;--surface:#ffffff;--surface2:#f3f4f6;--surface3:#e5e7eb;
   --text:#111827;--text2:#4b5563;--text3:#9ca3af;
   --border:#e5e7eb;--border2:#d1d5db;
   --radius:12px;--shadow:0 1px 3px rgba(0,0,0,0.08),0 1px 2px rgba(0,0,0,0.04);
   --shadow-md:0 4px 12px rgba(0,0,0,0.1),0 2px 4px rgba(0,0,0,0.06);
+  --card-done-bg:linear-gradient(135deg,#f0fdf4,#dcfce7);
+  --analogy-bg:linear-gradient(135deg,#eff6ff,#f5f3ff);
+  --daily-bg:linear-gradient(135deg,#fef3c7,#fce7f3,#ede9fe);
+  --daily-border:#fde68a;
 }
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.6}
+/* DARK MODE */
+html.dark{
+  --bg:#0f0e1a;--surface:#1a1828;--surface2:#231f35;--surface3:#2e2a44;
+  --text:#f0eeff;--text2:#b0a8d0;--text3:#6b6490;
+  --border:#2e2a44;--border2:#3d3860;
+  --shadow:0 1px 3px rgba(0,0,0,0.3),0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md:0 4px 12px rgba(0,0,0,0.4),0 2px 4px rgba(0,0,0,0.3);
+  --card-done-bg:linear-gradient(135deg,#052e16,#064e3b);
+  --analogy-bg:linear-gradient(135deg,#1e1b4b,#1e3a5f);
+  --daily-bg:linear-gradient(135deg,#1c1a10,#1f1020,#1a1530);
+  --daily-border:#3d3860;
+  --blue-light:#1e2a50;--blue-text:#93c5fd;
+}
+body{font-family:'Cambria',Georgia,'Times New Roman',serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.6;transition:background .3s,color .3s}
 
 /* NAV */
 nav{display:flex;align-items:center;justify-content:space-between;padding:.875rem 2rem;background:linear-gradient(90deg,#1e1b4b,#312e81);position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(49,46,129,0.4)}
@@ -101,7 +119,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:.875re
 /* DAILY CARD */
 .daily-wrap{padding:1rem 2rem;background:var(--bg)}
 .daily-inner{max-width:960px;margin:0 auto}
-.daily-card{background:linear-gradient(135deg,#fef3c7,#fce7f3,#ede9fe);border:1px solid #fde68a;border-radius:16px;padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;box-shadow:var(--shadow)}
+.daily-card{background:var(--daily-bg);border:1px solid var(--daily-border);border-radius:16px;padding:1.25rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;box-shadow:var(--shadow)}
 .daily-icon{font-size:32px}
 .daily-text-title{font-size:15px;font-weight:700;color:var(--text)}
 .daily-text-sub{font-size:12px;color:var(--text2);margin-top:3px}
@@ -238,6 +256,36 @@ footer{padding:1.75rem 2rem;background:linear-gradient(90deg,#1e1b4b,#312e81);ma
 .fc-progress{height:4px;background:var(--surface2);border-radius:99px;overflow:hidden;margin-bottom:1.25rem}
 .fc-progress-fill{height:100%;background:linear-gradient(90deg,#3b82f6,#8b5cf6);border-radius:99px;transition:width .3s}
 
+/* DARK MODE OVERRIDES */
+html.dark .prog-wrap{background:var(--surface)}
+html.dark .card{background:var(--surface)}
+html.dark .card.done{background:var(--card-done-bg);border-color:#16a34a}
+html.dark .modal{background:var(--surface)}
+html.dark .modal-close{background:var(--surface2);color:var(--text2)}
+html.dark .modal-close:hover{background:var(--surface3)}
+html.dark .key-points li{background:var(--surface2)}
+html.dark .analogy-box{background:var(--analogy-bg);border-color:#312e81;color:#c7d2fe}
+html.dark .analogy-box strong{color:#93c5fd}
+html.dark .modal-done-btn.undone{background:var(--surface2);color:var(--text2);border-color:var(--border2)}
+html.dark .daily-card{background:var(--daily-bg);border-color:var(--daily-border)}
+html.dark .section-count{background:var(--surface2);border-color:var(--border)}
+html.dark .weight-tag{background:var(--surface2);border-color:var(--border)}
+html.dark .tab:not(.active){background:var(--surface2);color:var(--text2);border-color:var(--border)}
+html.dark .fc-btn-prev{background:var(--surface2);color:var(--text2)}
+html.dark .fc-cat-btn{background:var(--surface2);color:var(--text2);border-color:var(--border)}
+html.dark .fc-cat-btn.active{background:var(--blue-light);color:var(--blue-text);border-color:#312e81}
+html.dark .fc-counter{color:var(--text2)}
+html.dark .fc-progress{background:var(--surface2)}
+
+/* DARK TOGGLE SWITCH */
+.dark-toggle{display:flex;align-items:center;gap:8px;cursor:pointer}
+.dark-toggle-label{font-size:12px;font-weight:600;color:rgba(255,255,255,0.7)}
+.toggle-track{width:40px;height:22px;border-radius:99px;background:rgba(255,255,255,0.2);border:1.5px solid rgba(255,255,255,0.3);position:relative;transition:background .3s;flex-shrink:0}
+html.dark .toggle-track{background:linear-gradient(135deg,#6366f1,#8b5cf6);border-color:#6366f1}
+.toggle-thumb{width:16px;height:16px;border-radius:50%;background:#fff;position:absolute;top:2px;left:2px;transition:transform .3s;box-shadow:0 1px 4px rgba(0,0,0,0.3)}
+html.dark .toggle-thumb{transform:translateX(18px)}
+.toggle-icon{font-size:13px;line-height:1}
+
 @media(max-width:640px){
   .hero h1{font-size:28px}
   .main,.daily-wrap,.prog-wrap,.qr-wrap{padding:1.25rem}
@@ -246,6 +294,7 @@ footer{padding:1.75rem 2rem;background:linear-gradient(90deg,#1e1b4b,#312e81);ma
   .tabs{overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}
   .qr-search{width:100%}
   .qr-title-row{flex-direction:column}
+  .dark-toggle-label{display:none}
 }
 </style>
 </head>
@@ -263,6 +312,11 @@ footer{padding:1.75rem 2rem;background:linear-gradient(90deg,#1e1b4b,#312e81);ma
     <a href="#" onclick="openFlashcards();return false">🃏 Flashcards</a>
   </div>
   <div class="nav-right">
+    <div class="dark-toggle" onclick="toggleDark()" title="Toggle dark mode">
+      <span class="toggle-icon" id="toggle-icon">☀️</span>
+      <div class="toggle-track"><div class="toggle-thumb"></div></div>
+      <span class="dark-toggle-label" id="toggle-label">Light</span>
+    </div>
     <div class="streak-badge" onclick="openStreak()">🔥 <span id="streak-count">0</span> day streak</div>
     <button class="btn-nav" onclick="openQuiz()">🎯 Test me</button>
   </div>
@@ -828,6 +882,24 @@ document.getElementById('qr-cats').addEventListener('click',e=>{
   document.querySelectorAll('.qr-cat').forEach(c=>c.classList.remove('active'));
   cat.classList.add('active');renderQR();
 });
+
+// DARK MODE
+function toggleDark(){
+  const isDark=document.documentElement.classList.toggle('dark');
+  localStorage.setItem('og-dark',isDark?'1':'0');
+  document.getElementById('toggle-icon').textContent=isDark?'🌙':'☀️';
+  document.getElementById('toggle-label').textContent=isDark?'Dark':'Light';
+}
+// Init dark mode
+(function(){
+  const saved=localStorage.getItem('og-dark');
+  const prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;
+  if(saved==='1'||(saved===null&&prefersDark)){
+    document.documentElement.classList.add('dark');
+    document.getElementById('toggle-icon').textContent='🌙';
+    document.getElementById('toggle-label').textContent='Dark';
+  }
+})();
 
 markToday();render('all');setDailyTopic();renderQR();
 </script>
